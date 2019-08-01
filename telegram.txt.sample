@@ -1,0 +1,4 @@
+#!/bin/bash
+BOT_TOKEN=""
+BOT_CHATID=""
+BOT_USERNAME=""

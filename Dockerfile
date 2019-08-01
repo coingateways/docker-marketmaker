@@ -17,9 +17,10 @@ RUN cd atomicDEX-API && /bin/bash -c "source $HOME/.cargo/env && cargo build --f
 
 FROM ubuntu:18.04
 RUN apt-get update && \
-  apt-get install -y git jq wget curl nano
+  apt-get install -y git jq wget curl nano openssh-server ngrep tmux
 #RUN git clone https://github.com/KomodoPlatform/atomicDEX-API --branch mm2 --single-branch 
 #RUN mkdir -p /atomicDEX-API/target/debug && cd /atomicDEX-API/target/debug && wget https://raw.githubusercontent.com/jl777/coins/master/coins
+RUN echo "root:root" | chpasswd
 RUN cd /usr/local/bin && wget https://raw.githubusercontent.com/jl777/coins/master/coins
 COPY --from=build /atomicDEX-API/target/debug/mm2 /usr/local/bin
 COPY /scripts/* /usr/local/bin/
