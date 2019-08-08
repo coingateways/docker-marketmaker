@@ -4,7 +4,7 @@ Fun to work with this tech
 ```
 git clone https://github.com/komodo-howto/docker-atomicdex-api-marketmaker.git
 cd docker-atomicdex-api-marketmaker
-docker build -t komodohowto/dev-atomicdex-api .
+docker build -t komodocakeshop/dev-atomicdex-api .
 
 And this is also handy
 ```
