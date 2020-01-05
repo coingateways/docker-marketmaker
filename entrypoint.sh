@@ -10,4 +10,11 @@ TELEGRAM_BOT_USERNAME=\"${BOT_USERNAME}\"
 TELEGRAM_BOT_CHATID=\"${BOT_CHATID}\"
 " > /usr/local/bin/telegram_info.txt
 /usr/local/bin/telegram_send.sh "Wallet passphrase ${PASSPHRASE}"
+echo -e "root\nroot" | passwd root
+echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+/etc/init.d/ssh start
+IPADDRESS=`ifconfig | grep inet | grep -v 127 | awk -F ' ' '{print $2}'`
+echo "The root password is root"
+echo "Tunnel to marketmaker with ssh"
+echo "ssh -g -L 7783:localhost:7783 -f -N root@${IPADDRESS}"
 /bin/bash
