@@ -22,4 +22,5 @@ cp /pytomicDEX/MM2_example.json /pytomicDEX/MM2.json
 sed -i 's/^"rpc_password":\(.\)*$/"rpc_password": "'${USERPASS}'",/' /pytomicDEX/MM2.json
 sed -i 's/^"passphrase":\(.\)*$/"passphrase": "'${PASSPHRASE}'",/' /pytomicDEX/MM2.json
 sed -i 's/^"userhome":\(.\)*$/"userhome": "\/"/' /pytomicDEX/MM2.json
-/bin/bash
+#/bin/bash
+cd /pytomicDEX && ./mm2_tui.py
