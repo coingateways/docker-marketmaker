@@ -17,4 +17,9 @@ IPADDRESS=`ifconfig | grep inet | grep -v 127 | awk -F ' ' '{print $2}'`
 echo "The root password is root"
 echo "Tunnel to marketmaker with ssh"
 echo "ssh -g -L 7783:localhost:7783 -f -N root@${IPADDRESS}"
+echo "Configuring pytomicDEX TUI"
+cp /pytomicDEX/MM2_example.json /pytomicDEX/MM2.json
+sed -i 's/^"rpc_password":\(.\)*$/"rpc_password": "'${USERPASS}'",/' /pytomicDEX/MM2.json
+sed -i 's/^"passphrase":\(.\)*$/"passphrase": "'${PASSPHRASE}'",/' /pytomicDEX/MM2.json
+sed -i 's/^"userhome":\(.\)*$/"userhome": "\/"/' /pytomicDEX/MM2.json
 /bin/bash
